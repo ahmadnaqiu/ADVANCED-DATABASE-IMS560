@@ -1,0 +1,268 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --active-blue: #811331; /* Changed to Maroon */
+    --text-main: #1d1d1f;
+    --text-muted: #86868b;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* Changed background gradient to a light maroon tint */
+    background: linear-gradient(135deg, #fdf2f4, #ffffff);
+}
+
+/* ================= FLOATING SIDEBAR ================= */
+.sidebar {
+    position: fixed;              /* floats above content */
+    top: 20px;                    /* small gap from top */
+    left: 20px;                   /* small gap from left */
+    width: 280px;
+    height: calc(100vh - 40px);   /* full height minus top/bottom gap */
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(129, 19, 49, 0.1); /* Changed shadow to subtle maroon */
+    z-index: 999;                 /* stay above main content */
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px 40px;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+    background: #811331; /* Changed to Maroon */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #811331; /* Added color to match title to branding */
+}
+
+.brand-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 20px 0 10px;
+}
+
+.nav-item a {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 6px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.nav-item a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #811331; /* Added hover color */
+}
+
+.nav-item.active a {
+    background: #fff;
+    color: #811331; /* Changed active text to Maroon */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.start-btn {
+    background: var(--active-blue);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+.main-wrapper {
+    margin: 20px;       /* spacing around content */
+    padding: 30px;
+    max-width: 1100px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    overflow-y: auto;
+    min-height: calc(100vh - 40px);
+}
+
+/* ================= DASHBOARD CARDS ================= */
+
+/* ================= DASHBOARD LAYOUT ================= */
+.dashboard-container {
+    display: flex;
+    justify-content: center; /* Centers the main content horizontally */
+    min-height: 100vh;
+    padding-left: 320px;     /* Accounts for Sidebar (280px) + Gap (40px) */
+    padding-right: 20px;    /* Symmetrical padding for the right side */
+    width: 100%;
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-wrapper {
+    margin: 20px 0;          /* Removed huge side margins to allow centering */
+    padding: 30px;
+    width: 100%;
+    max-width: 1100px;       /* Keeps content neat on large screens */
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    overflow-y: auto;
+    min-height: calc(100vh - 40px);
+    
+    /* Ensure the wrapper itself is centered within the flex area */
+    align-self: center;
+}
+
+/* Fix for Dashboard Cards alignment */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-right: 0;        /* Removed the large 200px right margin to prevent offset */
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-right: 200px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.card h4 {
+    margin: 0 0 10px;
+    color: #811331; /* Changed card headers to Maroon */
+}
+
+.card p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* ================= TABLE ================= */
+.classes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.classes-table th,
+.classes-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.classes-table th {
+    background: #fdf2f4; /* Changed background to light maroon tint */
+    color: #811331; /* Changed text to Maroon */
+}
+
+.classes-table tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+/* ================= STATUS DROPDOWN ================= */
+.status-dropdown {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    appearance: none;       /* removes default arrow for cleaner look */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.status-dropdown:focus {
+    border-color: #811331; /* Added maroon focus border */
+    outline: none;
+}
+
+.status-dropdown-wrapper::after {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    pointer-events: none;
+    font-size: 14px;
+}
+
+.logout-btn {
+    margin-top: 16px;
+    background: transparent;
+    color: #811331;
+    border: 1px solid rgba(129, 19, 49, 0.35);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+    align-self: center;
+    transition: all 0.2s ease;
+    
+}
+
+.logout-btn:hover {
+    background: rgba(129, 19, 49, 0.08);
+    border-color: #811331;
+}
+
+.logout-btn:active {
+    transform: scale(0.96);
+}
+
